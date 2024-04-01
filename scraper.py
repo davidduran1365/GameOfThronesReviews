@@ -19,6 +19,7 @@ for j in range(number_of_seasons):
 
     while reviews_number>len(browser.find_elements(By.CLASS_NAME, 'audience-review-row')):
         load_button=browser.find_element(By.XPATH, '//*[@id="reviews"]/div[2]/rt-button')
+        #On rottentomatoes the button isn't removed after it loaded all reviews, instead it gets hiden, so using a try-except deals well with that
         try:
             load_button.click()
         except:
